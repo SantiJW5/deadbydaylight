@@ -224,8 +224,8 @@
             <p>Get all the latest Dead by Daylight news, updates, deals, and more delivered straight to your inbox.</p>
             <h3>Email address</h3>
             <div class="registro-email">
-                <input type="email" placeholder="Enter your email address">
-                <a href="">SING UP</a>
+                <input type="email" id="inputemail1" placeholder="Enter your email address">
+                <a href="" id="botonemail1">SING UP</a>
             </div>
             <div class="registro-check">
                 <input type="checkbox" id="checkbox">
@@ -259,4 +259,33 @@
         <img src="/images/dbdlogo3.png" alt="" id="dbdlogo3">
         <img src="https://deadbydaylight.com/static/b7c79044862275c075179af727fd6838/ESRB_Rating_DBD_RBG_300dpi_e0d0ebbb19.jpg" alt="" id="imager">
     </div>
+
+    <script>
+        const inputemail1 = document.getElementById('inputemail1');
+        const botonemail1 = document.getElementById('botonemail1');
+        const checkbox = document.getElementById('checkbox');
+    
+        // Deshabilitar checkbox por defecto al cargar la página
+        checkbox.disabled = true;
+    
+        inputemail1.addEventListener('input', () => {
+            const emailValue = inputemail1.value;
+    
+            if (emailValue.includes('@gmail.com')) {
+                botonemail1.classList.add('active');
+                botonemail1.classList.remove('error');
+                botonemail1.setAttribute('href', '#');
+                checkbox.disabled = false; // Habilita el checkbox
+            } else {
+                botonemail1.classList.remove('active');
+                botonemail1.classList.add('error');
+                botonemail1.removeAttribute('href');
+                checkbox.disabled = true; // Deshabilita el checkbox
+                checkbox.checked = false; // Desmarca el checkbox si está marcado
+            }
+        });
+    </script>
+    
+    
+    
     
